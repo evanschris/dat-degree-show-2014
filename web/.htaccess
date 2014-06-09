@@ -2,4 +2,5 @@ RewriteEngine on
 
 RewriteRule ^projects/([-a-zA-Z0-9]+) project.php?name=$1&%{QUERY_STRING} [L]
 
-RewriteRule ^about page.php?page=about
+RewriteRule ^login login.php
+RewriteRule ^logout logout.php

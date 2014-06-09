@@ -2,7 +2,7 @@
 
 $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
-if (strpos($url,'local') || strpos($url,'192')) {
+if (strpos($url,'local') || strpos($url,'192') || strpos($url,'127.0.0.1')) {
 
 	define("DBHOST", "localhost");
 	define("DBNAME", "dat2014");
@@ -24,7 +24,7 @@ if (strpos($url,'local') || strpos($url,'192')) {
 		include $filename;
 	}
 
-	//db::Connect();
+	db::Connect();
 
 	session_start();
 
