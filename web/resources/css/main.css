@@ -107,19 +107,25 @@ textarea {
 
 
 .project .project-image {
-  position: relative;
-  padding: 14px;
-  width: 230px;
-  height: 230px;
-  background: #fff;
-  border: 1px solid #bf9d3e;
-  overflow: hidden;
+	position: relative;
+	padding: 14px;
+	width: 200px;
+	height: 200px;
+	background: #fff;
+	border: 1px solid #000;
+	overflow: hidden;
+	z-index: 7;
+}
+
+.project .project-image:hover {
+	border: 1px solid #CC0000;
 }
 
 .project .project-image .sequence {
-  position: absolute;
-  left: 230px;
-  top: 14px;
+	position: absolute;
+	left: 0px;
+	top: 14px;
+	z-index: 999;
 }
 
 
