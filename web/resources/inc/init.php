@@ -13,8 +13,8 @@ if (strpos($url,'local') || strpos($url,'192') || strpos($url,'127.0.0.1')) {
 }else{
 
 	define("DBHOST", "localhost");
-	define("DBNAME", "");
-	define("DBUSER", "");
+	define("DBNAME", "dat2014");
+	define("DBUSER", "root");
 	define("DBPASS", "");
 	define("SITE_NAME", "DAT '14 Graduate Showcase");
 	

@@ -4,3 +4,4 @@ RewriteRule ^projects/([-a-zA-Z0-9]+) project.php?name=$1&%{QUERY_STRING} [L]
 
 RewriteRule ^login login.php
 RewriteRule ^logout logout.php
+RewriteRule ^admin admin.php

@@ -17,6 +17,8 @@
 
         <link rel="stylesheet" href="resources/css/normalize.css">
         <link rel="stylesheet" href="resources/css/main.css">
+        <link rel="stylesheet" href="resources/css/admin.css">
+
         <script src="resources/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
@@ -31,7 +33,9 @@
                     <?php
                         }else{
                     ?>
+                            <li><a href="/admin">Admin</a></li>
                             <li><a href="/logout">Logout</a></li>
+
                     <?php
                         }
                     ?>
