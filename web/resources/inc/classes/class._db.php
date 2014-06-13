@@ -20,7 +20,7 @@ Class db{
 	}
 
 
-	static function setTable($arrParams){
+	static function setTable($arrParams,$files = null){
 
 		if(isset($arrParams['table'])){
 
@@ -57,6 +57,8 @@ Class db{
 			return $arrAttrResults;
 
 		}
+
+		if(isset($files))
 
 	}
 
