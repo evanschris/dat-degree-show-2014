@@ -4,7 +4,7 @@ $('.project-image').on('mouseenter', function() {
     	var pLeft = gif.position();
     	pLeft = pLeft.left;
     	var frames = gif.data("frames");
-    	var total = (frames * 215)*-1;
+    	var total = (frames * 235)*-1;
     	if (pLeft > (total+249)) {
     		if (pLeft == 249) {
     			gif.css( "left", 14 );
