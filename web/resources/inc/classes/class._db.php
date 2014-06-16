@@ -43,7 +43,27 @@ Class db{
 				}
 			}
 
-			$Sql = "INSERT INTO $table (". implode(",", $arrKeys) .") VALUES(". implode(",", $arrValues) .");";
+			if(isset($arrParams['id'])){
+
+				$updateParams= array();
+
+				foreach($arrParams as $k => $v){
+					if(!in_array($k, $arrOperators)){
+						$updateParams[] = $k . "='" .$v. "'";
+					}
+				}
+
+				$id = $arrParams['id'];
+
+				$Sql = "UPDATE $table SET ".implode(",", $updateParams)." WHERE id = '$id';";
+			
+			}else{
+
+				$Sql = "INSERT INTO $table (". implode(",", $arrKeys) .") VALUES(". implode(",", $arrValues) .");";
+			
+			}
+
+
 			if(mysql_query($Sql) === false){
 				$arrAttrResults['success'] = 0;
 				$arrAttrResults['message'] = "Something went wrong. Please try again.";
@@ -57,6 +77,7 @@ Class db{
 				$latest = db::getRows($Sql);
 				$arrAttrResults['id'] = $latest[0]['id'];
 			}
+	
 
 			if($files != null){	
 				//echo '<pre>' . print_r($files) . '</pre>';
