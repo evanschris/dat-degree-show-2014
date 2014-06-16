@@ -14,6 +14,10 @@
 
 
 			<?php
+
+				//echo '<pre>' . print_r($_POST,1) . '</pre>';
+
+				//echo '<pre>' . print_r($_FILES,1) . '</pre>';
 			
 					$arrRes = $db->setTable($_POST, $_FILES);
 

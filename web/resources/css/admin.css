@@ -34,3 +34,22 @@ form#project-form textarea{
 form#project-form input.submit{
 	margin:6px auto; 
 }
+
+
+.admin_table{
+	/*display: block;*/
+	margin: 24px auto;
+	width: 100%;
+	max-width: 600px;
+	position: relative;
+}
+
+table.admin_table th,
+table.admin_table td{
+	padding: 12px;
+	border: 1px solid #bbb;
+}
+
+.mod_img{
+	max-width: 24px;
+}

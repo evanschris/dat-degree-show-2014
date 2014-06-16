@@ -59,16 +59,21 @@ Class db{
 			}
 
 			if($files != null){	
-				if(move_uploaded_file($files['author_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/images/'.$author.'.jpg')){
+				//echo '<pre>' . print_r($files) . '</pre>';
+				if(move_uploaded_file($files['author_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/img/'.str_replace(" ","-",$author).'.jpg')){
 						$arrAttrResults['message'] .= " Author image saved too.";
 				}
 
-				if(move_uploaded_file($files['project_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/images/'.$title.'-thumbnail.jpg')){
+				if(move_uploaded_file($files['project_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/img/'.str_replace(" ","-",$title).'.jpg')){
 						$arrAttrResults['message'] .= " Project image saved too.";
 				}
 
-				if(move_uploaded_file($files['sequence_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/images/'.$author.'-sequence.jpg')){
-						$arrAttrResults['message'] .= " Project image saved too.";
+				if(move_uploaded_file($files['sequence_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/img/'.str_replace(" ","-",$author).'-sequence.jpg')){
+						$arrAttrResults['message'] .= " Sequence image saved too.";
+				}
+
+				if(move_uploaded_file($files['cover_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/img/'.str_replace(" ","-",$title).'-cover.jpg')){
+						$arrAttrResults['message'] .= " Cover image saved too.";
 				}
 			}
 

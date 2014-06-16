@@ -2,6 +2,8 @@
 
 Class project Extends db{
 
+	var $arrProjects = array();
+
 	var $id;
    	var $title;
   	var $author;
@@ -15,7 +17,8 @@ Class project Extends db{
 
 	var $author_image;
 	var $project_image;
-
+	var $sequence_image;
+	var $cover_image;
 
 
 	function __construct($id = null) {
@@ -40,8 +43,18 @@ Class project Extends db{
 
 			$this->author_image = $arrProjects[0]['author_image'];
 			$this->project_image = $arrProjects[0]['project_image'];
+		
+			$this->sequence_image = $arrProjects[0]['sequence_image'];
+			$this->cover_image = $arrProjects[0]['cover_image'];
+
 
 		}
+
+		$Sql = "SELECT * FROM projects;";
+		$arrProjects = $this->GetRows($Sql);
+		$this->arrProjects = $arrProjects;
+
+
 
 	}
 
@@ -49,7 +62,7 @@ Class project Extends db{
 
 		?>
 
-		<form id="project-form" action="/resources/ajax/set.php" method="POST">
+		<form id="project-form" action="/resources/ajax/set.php" method="POST" enctype="multipart/form-data">
 
 
 			<input type="hidden" name="table" value="projects" />
@@ -93,6 +106,9 @@ Class project Extends db{
 			<label for="sequence_image">sequence_image</label>
 			<input type="file" name="sequence_image" value="<?php echo $this->sequence_image; ?>" />		
 
+			<label for="cover_image">cover_image</label>
+			<input type="file" name="cover_image" value="<?php echo $this->cover_image; ?>" />		
+
 			<button type="submit">Submit</button>
 
 		</form>
@@ -101,5 +117,80 @@ Class project Extends db{
 		<?php
 
 	}
+
+
+	function display(){
+
+		//echo '<pre>'. print_r($this->arrProjects) . '</pre>';
+
+		?>
+
+		<table class="admin_table" id="project_list">
+			<tr>
+				<th>Project</th>
+				<th>Author</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+
+
+	
+		<?php
+
+
+
+			foreach($this->arrProjects as $k => $v){
+
+				?>
+
+					<tr>
+						<td>
+							<?php 
+								echo $v['title'];
+							?>
+						</td>
+
+						<td>
+							<?php 
+								echo $v['author'];
+							?>
+						</td>
+
+						<td>
+							<a class="element_mod_link" href="/admin?id=<?php echo $v['id']; ?>"><img class="mod_img" src="/resources/img/edit.png"/></a>
+						</td>
+
+
+						<td>
+							<a class="element_mod_link" href="/resources/ajax/delete.php?id=<?php echo $v['id']; ?>"><img class="mod_img" src="/resources/img/delete.png"/></a>
+						</td>
+
+						
+					</tr>
+
+				<?php
+			}
+		?>
+		</table>
+
+		<?php
+	}
+
+
+	function delete(){
+
+		if(isset($this->id)){
+
+			$Sql = "DELETE FROM projects WHERE id = '$this->id';";
+			if(mysql_query($Sql)){
+				return "Deleted successfully.";
+			}else{
+				return "Something went wrong.";
+			}
+
+		}
+
+	}
+
 
 }
