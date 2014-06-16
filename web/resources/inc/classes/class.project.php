@@ -49,7 +49,7 @@ Class project Extends db{
 
 		?>
 
-		<form id="project-form" action="/ajax/setTable.php" method="POST">
+		<form id="project-form" action="/resources/ajax/set.php" method="POST">
 
 
 			<input type="hidden" name="table" value="projects" />
@@ -89,6 +89,9 @@ Class project Extends db{
 
 			<label for="project_image">project_image</label>
 			<input type="file" name="project_image" value="<?php echo $this->project_image; ?>" />
+
+			<label for="sequence_image">sequence_image</label>
+			<input type="file" name="sequence_image" value="<?php echo $this->sequence_image; ?>" />		
 
 			<button type="submit">Submit</button>
 

@@ -20,7 +20,7 @@ Class db{
 	}
 
 
-	static function setTable($arrParams,$files = null){
+	static function setTable($arrParams, $files = null){
 
 		if(isset($arrParams['table'])){
 
@@ -31,6 +31,10 @@ Class db{
 			$arrValues = array();
 
 			$arrAttrResults = array();
+
+			$title = $arrParams['title'];
+			$author = $arrParams['author'];
+
 
 			foreach($arrParams as $k => $v){
 				if(!in_array($k, $arrOperators)){
@@ -43,7 +47,7 @@ Class db{
 			if(mysql_query($Sql) === false){
 				$arrAttrResults['success'] = 0;
 				$arrAttrResults['message'] = "Something went wrong. Please try again.";
-				//$arrAttrResults['message'] = $Sql;
+				$arrAttrResults['message'] .= $Sql;
 
 			}else{
 				$arrAttrResults['success'] = 1;
@@ -54,11 +58,27 @@ Class db{
 				$arrAttrResults['id'] = $latest[0]['id'];
 			}
 
+			if($files != null){	
+				if(move_uploaded_file($files['author_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/images/'.$author.'.jpg')){
+						$arrAttrResults['message'] .= " Author image saved too.";
+				}
+
+				if(move_uploaded_file($files['project_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/images/'.$title.'-thumbnail.jpg')){
+						$arrAttrResults['message'] .= " Project image saved too.";
+				}
+
+				if(move_uploaded_file($files['sequence_image']['tmp_name'] ,$_SERVER['DOCUMENT_ROOT'].'/images/'.$author.'-sequence.jpg')){
+						$arrAttrResults['message'] .= " Project image saved too.";
+				}
+			}
+
+
 			return $arrAttrResults;
+
+
 
 		}
 
-		if(isset($files))
 
 	}
 
