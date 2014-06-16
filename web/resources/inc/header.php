@@ -52,7 +52,16 @@
 <!-- Add your site or application content here -->
 <div class="container">
 
-<header class="main-header clearfix">
+<?php if($strPage == 'projects'){ ?>
+    
+    <header class="main-header clearfix">
+
+<?php }else{ ?>
+    
+    <header class="project-header">
+
+<?php } ?>
+
 <nav role="navigation" class="main-nav clearfix">
     <ul class="clearfix">
         <li><a class="selected" href="/">Projects</a></li>
