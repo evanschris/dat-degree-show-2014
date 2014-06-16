@@ -119,7 +119,7 @@ Class project Extends db{
 	}
 
 
-	function display(){
+	function adminList(){
 
 		//echo '<pre>'. print_r($this->arrProjects) . '</pre>';
 
@@ -174,6 +174,24 @@ Class project Extends db{
 		</table>
 
 		<?php
+	}
+
+	function display(){
+
+		foreach($this->arrProjects as $k => $v){
+		?>
+
+			<article class="project-item">
+				<img src="img/<?php echo str_replace(' ','-',$v['title']); ?>.jpg" alt="">
+				<!-- <div class="item-overlay">
+					<h1>View Project</h1>
+				</div> -->
+				<h1><?php echo $v['title'] ?></h1>
+				<h2><?php echo $v['author'] ?></h2>
+			</article>
+
+		<?php
+		}
 	}
 
 

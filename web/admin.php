@@ -17,7 +17,7 @@
 			
 			<?php 
 				$objProject->form();
-				$objProject->display();
+				$objProject->adminList();
 
 			?>
 

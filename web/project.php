@@ -1,14 +1,8 @@
 <?php 
-	$strPage = 'projects';
+	$strPage = 'project';
 	include($_SERVER['DOCUMENT_ROOT'].'/resources/inc/header.php');
 	$objProject = new Project();
 ?>
-		
-	<main class="project-main clearfix" role="main">
-		<?php
-			$objProject->display();
-		?>
-	</main>
 			
 
 <?php 
