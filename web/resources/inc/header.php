@@ -70,7 +70,7 @@
     </ul>
 </nav>
 
-<?php if($strPage = 'projects'){ ?>
+<?php if($strPage == 'projects'){ ?>
 
     <section class="main-intro">
     <h1>Digital Art &amp; Technology</h1>

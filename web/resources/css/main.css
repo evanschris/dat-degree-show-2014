@@ -221,6 +221,12 @@ textarea {
         width:100%;
     }
 
+    .project-main a{
+        display: block;
+        height: 100%;
+    }
+
+
   /*  .project-main .project-item .item-overlay
     {
         position:absolute;

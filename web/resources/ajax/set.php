@@ -3,7 +3,7 @@
 	if(!isset($_COOKIE["user"])){
 		header( 'Location: /login.php' );
 	}
-
+	$strPage = 'admin';
 	include($_SERVER['DOCUMENT_ROOT'].'/resources/inc/header.php');
 
 	$db = new db();

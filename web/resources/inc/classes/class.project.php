@@ -20,35 +20,57 @@ Class project Extends db{
 	var $sequence_image;
 	var $cover_image;
 
+	var $activeProject;
 
-	function __construct($id = null) {
 
-		if($id != null){
-			$this->id = $id;
+	function __construct($id = null, $title = null) {
 
-			$Sql = "SELECT * FROM projects WHERE id = '$id';"; 
+		if($id != null || $title != null){
 
+			if($id != null){
+				$this->id = $id;
+				$Sql = "SELECT * FROM projects WHERE id = '$id';"; 
+
+				$arrProjects = $this->GetRows($Sql);
+
+
+			}else if($title != null){
+				$this->id = $id;
+				$title = str_replace('-',' ',$title);
+				$Sql = "SELECT * FROM projects WHERE title = '$title';"; 
+			}
+			
 			$arrProjects = $this->GetRows($Sql);
 
-			$this->id = $arrProjects[0]['id'];
-			$this->title = $arrProjects[0]['title'];
-			$this->author = $arrProjects[0]['author'];
-			$this->twitter = $arrProjects[0]['twitter'];
-			$this->linkedin = $arrProjects[0]['linkedin'];
-			$this->website = $arrProjects[0]['website'];
+			if(!empty($arrProjects)){
 
-			$this->short_description = $arrProjects[0]['short_description'];
-			$this->description = $arrProjects[0]['description'];
-			$this->video = $arrProjects[0]['video'];
+				$this->id = $arrProjects[0]['id'];
+				$this->title = $arrProjects[0]['title'];
+				$this->author = $arrProjects[0]['author'];
+				$this->twitter = $arrProjects[0]['twitter'];
+				$this->linkedin = $arrProjects[0]['linkedin'];
+				$this->website = $arrProjects[0]['website'];
 
-			$this->author_image = $arrProjects[0]['author_image'];
-			$this->project_image = $arrProjects[0]['project_image'];
-		
-			$this->sequence_image = $arrProjects[0]['sequence_image'];
-			$this->cover_image = $arrProjects[0]['cover_image'];
+				$this->short_description = $arrProjects[0]['short_description'];
+				$this->description = $arrProjects[0]['description'];
+				$this->video = $arrProjects[0]['video'];
+
+				$this->author_image = $arrProjects[0]['author_image'];
+				$this->project_image = $arrProjects[0]['project_image'];
+			
+				$this->sequence_image = $arrProjects[0]['sequence_image'];
+				$this->cover_image = $arrProjects[0]['cover_image'];
+
+				$this->activeProject = true;
 
 
+			}else{
+				$this->activeProject = false;
+			}
 		}
+
+
+
 
 		$Sql = "SELECT * FROM projects;";
 		$arrProjects = $this->GetRows($Sql);
@@ -182,11 +204,12 @@ Class project Extends db{
 		?>
 
 			<article class="project-item">
-				<img src="img/<?php echo str_replace(' ','-',$v['title']); ?>.jpg" alt="">
+				<a href="/project/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>"><img src="img/<?php echo str_replace(' ','-',$v['title']); ?>.jpg" alt="">
 				<!-- <div class="item-overlay">
 					<h1>View Project</h1>
 				</div> -->
-				<h1><?php echo $v['title'] ?></h1>
+				</a>
+				<h1><a href="/project/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>"><?php echo $v['title'] ?></a></h1>
 				<h2><?php echo $v['author'] ?></h2>
 			</article>
 
