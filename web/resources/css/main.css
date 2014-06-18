@@ -399,6 +399,12 @@ background-color: rgba(0,0,0,0.1);
         text-indent:0;
     }
 
+    .profile-main img#author-img
+    {
+        max-width: 140px;
+        max-height: 140px;
+    }
+
     footer
     {
         padding:80px 0;

@@ -19,7 +19,7 @@
 </div>
 <div class="container">
 <main class="profile-main clearfix" role="main">	
-	<img src="/img/<?php echo str_replace(' ','-',$objProject->author); ?>.jpg">
+	<img id="author-img" src="/img/<?php echo str_replace(' ','-',$objProject->author); ?>.jpg">
 	<section>
 	<h1><?php echo $objProject->title; ?></h1>
 	<h2><?php echo $objProject->author; ?></h2>	
