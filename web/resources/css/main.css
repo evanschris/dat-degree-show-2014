@@ -424,7 +424,31 @@ background-color: rgba(0,0,0,0.1);
 
 
 
+/* GIF STUFF */
 
+.project .project-image {
+	position: relative;
+	padding: 14px;
+	width: 200px;
+	height: 200px;
+	background: #fff;
+	border: 1px solid #000;
+	overflow: hidden;
+	z-index: 7;
+	margin: 0 auto;
+	margin-bottom: 50px;
+}
+
+.project .project-image:hover {
+	border: 1px solid #CC0000;
+}
+
+.project .project-image .sequence {
+	position: absolute;
+	left: 0px;
+	top: 14px;
+	z-index: 999;
+}
 
 
 
