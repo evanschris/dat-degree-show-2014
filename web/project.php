@@ -14,7 +14,7 @@
 </div>
 
 <div class="vimeo-container">
-	<div id="overlay" style="background-image: url(/img/<?php echo str_replace(' ','-',$objProject->title); ?>-cover.jpg); background-size: cover;">
+	<div id="overlay" style="background: url(/img/<?php echo strtolower(str_replace(' ','-',$objProject->title)); ?>-cover.jpg)no-repeat center center;">
 		<img id="play-button" src="/resources/img/delete.png" />
 	</div>
 	<iframe id="video" src="//player.vimeo.com/video/<?php echo $objProject->video; ?>?title=0&amp;byline=0&amp;portrait=0&amp;color=b62f21;api=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
