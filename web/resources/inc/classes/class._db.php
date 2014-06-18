@@ -39,7 +39,7 @@ Class db{
 			foreach($arrParams as $k => $v){
 				if(!in_array($k, $arrOperators)){
 					$arrKeys[] = $k;
-					$arrValues[] = "'".$v."'";
+					$arrValues[] = "'".str_replace('"','&quot;',str_replace("'","&#39;",$v))."'";
 				}
 			}
 
