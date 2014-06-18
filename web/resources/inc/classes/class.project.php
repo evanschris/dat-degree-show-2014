@@ -207,8 +207,8 @@ Class project Extends db{
 
 	        	<div class="project-image">
 	        		<a href="/project/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>">
-	        			<img src="img/<?php echo str_replace(' ','-',$v['title']); ?>.jpg" width="200" height="200">
-	        			<img src="img/<?php echo str_replace(' ','-',$v['author']); ?>-sequence.jpg" data-frames="15" height="200" class="sequence" id="gif" style="left: 249px;">
+	        			<img src="img/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>.jpg" width="200" height="200">
+	        			<img src="img/<?php echo strtolower(str_replace(' ','-',$v['author'])); ?>-sequence.jpg" data-frames="15" height="200" class="sequence" id="gif" style="left: 249px;">
 	        		</a>
 	        	</div>
 				<h1><a href="/project/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>"><?php echo $v['title'] ?></a></h1>
