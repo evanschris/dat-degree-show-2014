@@ -204,11 +204,13 @@ Class project Extends db{
 		?>
 
 			<article class="project-item">
-				<a href="/project/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>"><img src="img/<?php echo str_replace(' ','-',$v['title']); ?>.jpg" alt="">
-				<!-- <div class="item-overlay">
-					<h1>View Project</h1>
-				</div> -->
-				</a>
+
+	        	<div class="project-image">
+	        		<a href="/project/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>">
+	        			<img src="img/<?php echo str_replace(' ','-',$v['title']); ?>.jpg" width="200" height="200">
+	        			<img src="img/<?php echo str_replace(' ','-',$v['author']); ?>-sequence.jpg" data-frames="15" height="200" class="sequence" id="gif" style="left: 249px;">
+	        		</a>
+	        	</div>
 				<h1><a href="/project/<?php echo strtolower(str_replace(' ','-',$v['title'])); ?>"><?php echo $v['title'] ?></a></h1>
 				<h2><?php echo $v['author'] ?></h2>
 			</article>
