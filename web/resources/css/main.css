@@ -426,7 +426,7 @@ background-color: rgba(0,0,0,0.1);
 
 /* GIF STUFF */
 
-.project .project-image {
+.project-image {
 	position: relative;
 	padding: 14px;
 	width: 200px;
@@ -439,11 +439,11 @@ background-color: rgba(0,0,0,0.1);
 	margin-bottom: 50px;
 }
 
-.project .project-image:hover {
+.project-image:hover {
 	border: 1px solid #CC0000;
 }
 
-.project .project-image .sequence {
+.project-image .sequence {
 	position: absolute;
 	left: 0px;
 	top: 14px;
