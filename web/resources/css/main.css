@@ -216,10 +216,10 @@ textarea {
         float:left;
         
     }
-    .project-main ul li img
+    /*.project-main ul li img.project-image
     {
         width:100%;
-    }
+    }*/
 
     .project-main a{
         display: block;
@@ -265,7 +265,7 @@ textarea {
         margin-right:0;
     }
 
-    .project-main .project-item img
+    .project-main .project-item img:not(.sequence)
     {
         width:100%;
     }
@@ -701,7 +701,7 @@ background-color: rgba(0,0,0,0.1);
         page-break-inside: avoid;
     }
 
-    img {
+    img:not(.sequence) {
         max-width: 100% !important;
     }
 
