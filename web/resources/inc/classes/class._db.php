@@ -36,10 +36,18 @@ Class db{
 			$author = $arrParams['author'];
 
 
+
+
 			foreach($arrParams as $k => $v){
 				if(!in_array($k, $arrOperators)){
 					$arrKeys[] = $k;
-					$arrValues[] = "'".str_replace('"','&quot;',str_replace("'","&#39;",$v))."'";
+					$v = str_replace('‘', '&lsquo;', $v);
+					$v = str_replace('’', '&rsquo;', $v);
+					$v = str_replace('“', '&ldquo;', $v);
+					$v = str_replace('”', '&rdquo;', $v);
+					$v = str_replace('"', '&dquo;', $v);
+					$v = str_replace("'", '&squo;', $v);
+					$arrValues[] = "'".htmlentities($v)."'";
 				}
 			}
 
@@ -49,7 +57,13 @@ Class db{
 
 				foreach($arrParams as $k => $v){
 					if(!in_array($k, $arrOperators)){
-						$updateParams[] = $k . "='" .$v. "'";
+						$v = str_replace('‘', '&lsquo;', $v);
+						$v = str_replace('’', '&rsquo;', $v);
+						$v = str_replace('“', '&ldquo;', $v);
+						$v = str_replace('”', '&rdquo;', $v);
+						$v = str_replace('"', '&dquo;', $v);
+						$v = str_replace("'", '&squo;', $v);
+						$updateParams[] = $k . "='" .htmlentities($v). "'";
 					}
 				}
 

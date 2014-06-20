@@ -317,10 +317,11 @@ background-color: rgba(0,0,0,0.1);
     	position: absolute;
     	background: rgba(0, 0, 0, .75);
     	z-index: 999;
-        background-size: cover;
-        -o-background-size: cover;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
+        background-size:cover !important;
+        -webkit-background-size:cover !important;
+        -moz-background-size:cover !important;
+        -o-background-size:cover !important;
+        background-size:cover !important;
     }
     
     .vimeo-container iframe

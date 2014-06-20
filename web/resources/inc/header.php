@@ -42,7 +42,7 @@
         <link rel='stylesheet' href='/resources/css/main.css'>
         <link rel="stylesheet" href="/resources/css/admin.css">
 
-        <script src='js/vendor/modernizr-2.6.2.min.js'></script>        
+        <script src='/resources/js/vendor/modernizr-2.6.2.min.js'></script>        
     </head>
     <body>
         <!--[if lt IE 7]>
